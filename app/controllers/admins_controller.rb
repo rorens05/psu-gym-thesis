@@ -1,7 +1,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
-  before_action :admin_only
-
+  
   layout 'admin'
   # GET /admins
   # GET /admins.json
@@ -71,10 +70,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:username, :password_confirmation, :password, :email)
-    end
-
-    def admin_only
-      redirect_to new_admin_session_path unless admin_signed_in?
+      params.require(:admin).permit(:username, :password, :password_confirmation, :email, :password_digest)
     end
 end
