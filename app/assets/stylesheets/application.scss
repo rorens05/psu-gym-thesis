@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+  
+.console-cursor, .console-prompt-display, .console-message{
+  font-size: large
+}
+
+#console{
+  height: 4px;
+}

@@ -33,6 +33,23 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bootstrap', '~> 4.2.1'
+gem 'awesome_print', '~> 1.8'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'bcrypt', '~> 3.1.7'
+gem 'roo'
+gem "mini_magick"
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+gem 'seed_dump'
+gem 'kaminari'
+gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'devise'
+
+#testing cloudinary
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

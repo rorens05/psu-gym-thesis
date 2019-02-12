@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-sm navbar-dark gym-bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#"> <%= image_tag '/images/logo.png', class: "logo" %> PSU GYM</a>
+
+    <div class="dropdown">
+      <a class="dropdown-toggle user-name" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= image_tag '/images/admin.png', class: "user-image" %> Admin
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" href="#">About</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Logout</a>
+      </div>
+    </div>
+    
+  </div>
+</nav>
