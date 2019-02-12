@@ -72,13 +72,29 @@ body{
       font-size: large;
       border: 1px solid rgb(214, 214, 214)
     }
+
+    input[type=submit]{
+      border: 1px solid #551520;
+      background-color: $primary-color;
+      color: white;
+      padding: 5px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 200px;
+
+      &:hover{
+        background-color: brown;
+      }
+    }
   }
 
   .show-image{
     width: 200px;
     height: 200px;
-    float: left;
+    display: block;
+    margin: 0 auto;
     margin-bottom: 20px;
+
   }
   table{
     min-width: 100%;
