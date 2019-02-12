@@ -1,0 +1,42 @@
+
+<div class="container main margined-top bg-white">
+<h1><%= @user.name  %></h1><hr>
+<div class="row">
+  <div class="col-sm-3">
+    <%= image_tag validate_image(@user.image), class: 'show-image'%>
+  </div>
+  <div class="col-sm-9">
+  
+    <table class="information">
+      <tr>
+        <th>Email:</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>Address:</th>
+        <td><%= @user.address %></td>
+      </tr>
+      <tr>
+        <th>Birthday:</th>
+        <td><%= @user.birthday %></td>
+      </tr>
+      <tr>
+        <th>Contact no:</th>
+        <td><%= @user.contact_no %></td>
+      </tr>
+      <tr>
+        <th>Gender:</th>
+        <td><%= @user.gender %></td>
+      </tr>
+    </table>
+
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+
+  </div>
+</div>
+
+</div>
+
+
+

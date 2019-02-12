@@ -24,6 +24,18 @@ body{
   margin-top: -5px;
 }
 
+.information{
+  tr{
+    border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
+    td{
+      padding: 3px !important;
+    }
+    th{
+      width: 140px;
+    }
+  }
+}
+
 .user-name{
   color: rgb(236, 236, 236);
   &:hover{
@@ -35,6 +47,65 @@ body{
 
 .main{
   overflow: auto !important;
+  padding-top: 10px !important;
+  form{
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid rgb(219, 219, 219);
+    box-shadow: 0 0 10px gray;
+    margin: 20px auto;
+    padding: 15px 20px;
+    img{
+      max-width: 200px;
+      max-height: 200px;
+      display: block;
+      margin: 10px auto;
+    }
+    label{
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+    input[type=text], input[type=number], input[type=password]{
+      width: 100%;
+      padding: 5px;
+      font-size: large;
+      border: 1px solid rgb(214, 214, 214)
+    }
+  }
+
+  .show-image{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-bottom: 20px;
+  }
+  table{
+    min-width: 100%;
+    thead{
+      border-top: 1px solid rgb(175, 175, 175);
+      border-bottom: 1px solid  rgb(175, 175, 175);
+      th{
+        padding: 10px;
+        background-color: $primary-color;
+        color: white;
+        border-left: 1px solid rgb(122, 122, 122);
+        text-align: center;
+      }
+    }
+    tr{
+      border-bottom: 1px solid rgb(190, 190, 190);
+      td{
+        padding: 10px;
+        img{
+          width: 80px;
+          height: 80px;
+          margin-right: 10px;
+        }
+
+      }
+    }
+  }
 }
 
 .gym-bg-primary{
@@ -80,6 +151,9 @@ body{
 
 
 @media screen and (max-width: 990px) {
+  .controller-name{
+    margin-top: 0 !important;
+  }
   .nav-item{
     width: 100% !important;
     text-align: left !important;   
@@ -97,6 +171,12 @@ body{
     color: black !important;
   }
 
+  td{
+    text-align: center;
+    img{
+      margin: 0 !important;
+    }
+  }
   ul.navbar-nav{
     margin-top: 5px !important;
   }
@@ -120,6 +200,7 @@ body{
       color: white !important;
       font-size: 25px;
       border: 1px solid white !important;
+ 
     }
   }
 }
