@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: one
+  height: 9.99
+  weight: 9.99
+  blood_pressure: MyString
+  sugar: 1
+  waist_line: 9.99
+
+two:
+  day: two
+  height: 9.99
+  weight: 9.99
+  blood_pressure: MyString
+  sugar: 1
+  waist_line: 9.99

@@ -1,0 +1,36 @@
+
+<div class="container main margined-top bg-white">
+  <p>
+    <strong>Day:</strong>
+    <%= @health_status.day %>
+  </p>
+
+  <p>
+    <strong>Height:</strong>
+    <%= @health_status.height %>
+  </p>
+
+  <p>
+    <strong>Weight:</strong>
+    <%= @health_status.weight %>
+  </p>
+
+  <p>
+    <strong>Blood pressure:</strong>
+    <%= @health_status.blood_pressure %>
+  </p>
+
+  <p>
+    <strong>Sugar:</strong>
+    <%= @health_status.sugar %>
+  </p>
+
+  <p>
+    <strong>Waist line:</strong>
+    <%= @health_status.waist_line %>
+  </p>
+
+  <%= link_to 'Edit', edit_health_status_path(@health_status) %> |
+  <%= link_to 'Back', health_statuses_path %>
+
+</div>

@@ -1,0 +1,47 @@
+<%= form_with(model: health_status, local: true) do |form| %>
+  <% if health_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(health_status.errors.count, "error") %> prohibited this health_status from being saved:</h2>
+
+      <ul>
+      <% health_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :day_id %>
+    <%= form.select :day_id, options_from_collection_for_select( form.object.day.user.days, 'id', 'day_no', form.object.day_id ), {}, class: "op-fr-coll" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blood_pressure %>
+    <%= form.text_field :blood_pressure %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sugar %>
+    <%= form.number_field :sugar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :waist_line %>
+    <%= form.text_field :waist_line %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

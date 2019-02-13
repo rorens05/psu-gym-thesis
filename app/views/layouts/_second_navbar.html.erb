@@ -17,8 +17,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="fas fa-dumbbell icon"></span>Exercises</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fas fa-chart-pie icon"></span>Health</a>
+          <li class="nav-item  <%= check_if_active(['health_statuses']) %>">
+            <a class="nav-link" href="/health_statuses"><span class="fas fa-chart-pie icon"></span>Health</a>
           </li>
           <li class="nav-item <%= check_if_active(['admins']) %>">
             <a class="nav-link" href="/admins"><span class="fas fa-users-cog icon"></span>Admins</a>

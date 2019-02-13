@@ -1,25 +1,47 @@
 
 <div class="container main margined-top bg-white">
+  <%= render partial: 'users/profile', locals: {user: @day.user} %><hr>
+ 
+  <h1><%= "Day " + @day.day_no.to_s %></h1>
   <p>
-    <strong>User:</strong>
-    <%= @day.user_id %>
+    <%= format_date(@day.date_created) %>
   </p>
 
   <p>
-    <strong>Note:</strong>
     <%= @day.note %>
   </p>
 
-  <p>
-    <strong>Date created:</strong>
-    <%= @day.date_created %>
-  </p>
+  <%= link_to 'Edit', edit_day_path(@day) %> | 
+  <%= link_to 'Destroy', @day, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', @day.user %>
+</div>
 
-  <p>
-    <strong>Day no:</strong>
-    <%= @day.day_no %>
-  </p>
 
-  <%= link_to 'Edit', edit_day_path(@day) %> |
-  <%= link_to 'Back', days_path %>
+<div class="container bg-white new main">
+  <h1>Health Status</h1> <hr>
+
+  <table class="">
+    <tr>
+      <td width="200px">Height:</td>
+      <td><%= @health_status.height %></td>
+    </tr>
+    <tr>
+      <td>Weight:</td>
+      <td><%= @health_status.weight %></td>
+    </tr>
+    <tr>
+      <td>Blood pressure:</td>
+      <td><%= @health_status.blood_pressure %></td>
+    </tr>
+    <tr>
+      <td>Sugar:</td>
+      <td><%= @health_status.sugar %></td>
+    </tr>
+    <tr>
+      <td>Waist line:</td>
+      <td><%= @health_status.waist_line %></td>
+    </tr>
+  </table><br>
+
+  <%= render 'days/edit_day_health' %> <br> <p></p>
 </div>

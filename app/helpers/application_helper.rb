@@ -18,4 +18,8 @@ module ApplicationHelper
   def limit_string(string, lenght)
     string[0..lenght].gsub(/\s\w+$/,'...')
   end
+
+  def format_date(date)
+    return date.strftime("%B %e, %Y")
+  end
 end

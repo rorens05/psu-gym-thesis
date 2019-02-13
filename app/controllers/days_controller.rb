@@ -11,6 +11,7 @@ class DaysController < ApplicationController
   # GET /days/1
   # GET /days/1.json
   def show
+    @health_status = @day.health_statuses.first
   end
 
   # GET /days/new
@@ -29,6 +30,7 @@ class DaysController < ApplicationController
     @day.day_no = Day.where(user_id: @day.user_id).count + 1
     respond_to do |format|
       if @day.save
+        HealthStatus.create(day_id: @day.id)
         format.html { redirect_to @day.user, notice: 'Day was successfully created.' }
         format.json { render :show, status: :created, location: @day }
       else

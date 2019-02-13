@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_13_013101) do
+ActiveRecord::Schema.define(version: 2019_02_13_111715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 2019_02_13_013101) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "health_statuses", force: :cascade do |t|
+    t.bigint "day_id"
+    t.decimal "height", precision: 8, scale: 2, default: "0.0"
+    t.decimal "weight", precision: 8, scale: 2, default: "0.0"
+    t.string "blood_pressure", default: "120/80"
+    t.integer "sugar", default: 0
+    t.decimal "waist_line", default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_health_statuses_on_day_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -66,4 +78,5 @@ ActiveRecord::Schema.define(version: 2019_02_13_013101) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "health_statuses", "days"
 end
