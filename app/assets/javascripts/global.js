@@ -14,4 +14,12 @@ $( document ).ready(function() {
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      $(".footer").addClass("show");
+    }else{
+      $(".footer").removeClass("show");
+    }
+ });
 });  

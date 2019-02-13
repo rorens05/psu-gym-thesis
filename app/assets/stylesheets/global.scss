@@ -48,6 +48,7 @@ body{
 .main{
   overflow: auto !important;
   padding-top: 10px !important;
+  margin-bottom: 50px;
   form{
     width: 100%;
     max-width: 600px;
@@ -66,11 +67,12 @@ body{
       margin-top: 10px;
       margin-bottom: 0px;
     }
-    input[type=text], input[type=number], input[type=password]{
+    input[type=text], input[type=number], input[type=password], textarea, .name-select{
       width: 100%;
       padding: 5px;
       font-size: large;
-      border: 1px solid rgb(214, 214, 214)
+      border: 1px solid rgb(214, 214, 214);
+      background-color: white;
     }
 
     input[type=submit]{
@@ -89,12 +91,13 @@ body{
   }
 
   .show-image{
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
     display: block;
     margin: 0 auto;
     margin-bottom: 20px;
-
   }
   table{
     min-width: 100%;
@@ -127,6 +130,12 @@ body{
 .gym-bg-primary{
   background-color: $primary-color !important;
 }
+
+.gym-button-primary{
+  background-color: $primary-color !important;
+  border: 1px solid #862132 !important;
+
+} 
 
 .gym-bg-white{
   background-color: $white !important
@@ -161,9 +170,27 @@ body{
   margin-top: 10px;
 }
 
+.footer{
+  height: 50px;
+  width: 100%;
+  background-color: $primary-color;
+  position: fixed;
+  bottom: 0;
+  display: none;
+  p{
+    color: white;
+    text-align: center;
+    margin-top: 11px;
+  }
+}
 
+.show{
+  display: block;
+}
 
-
+.clear-fix{
+  overflow: auto;
+}
 
 
 @media screen and (max-width: 990px) {

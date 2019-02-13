@@ -1,40 +1,114 @@
 
 <div class="container main margined-top bg-white">
-<h1><%= @user.name  %></h1><hr>
-<div class="row">
-  <div class="col-sm-3">
-    <%= image_tag validate_image(@user.image), class: 'show-image'%>
-  </div>
-  <div class="col-sm-9">
-  
-    <table class="information">
-      <tr>
-        <th>Email:</th>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th>Address:</th>
-        <td><%= @user.address %></td>
-      </tr>
-      <tr>
-        <th>Birthday:</th>
-        <td><%= @user.birthday %></td>
-      </tr>
-      <tr>
-        <th>Contact no:</th>
-        <td><%= @user.contact_no %></td>
-      </tr>
-      <tr>
-        <th>Gender:</th>
-        <td><%= @user.gender %></td>
-      </tr>
-    </table>
+  <h1><%= @user.name  %></h1>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= image_tag validate_image(@user.image), class: 'show-image'%>
+    </div>
+    <div class="col-sm-9">
+    
+      <table class="information">
+        <tr>
+          <th>Email:</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th>Birthday:</th>
+          <td><%= @user.birthday %></td>
+        </tr>
+        <tr>
+          <th>Contact no:</th>
+          <td><%= @user.contact_no %></td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td><%= @user.gender %></td>
+        </tr>
+      </table>
 
-    <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Back', users_path %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
 
+    </div>
   </div>
-</div>
+  <hr>
+  <h2>Days</h2>
+  <button type="button" class="btn btn-primary gym-button-primary" data-toggle="modal" data-target="#exampleModal">
+    Create new day
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create New Day</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= form_with(model: @day, local: true) do |form| %>
+          <% if @day.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>
+              <ul>
+              <% @day.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= form.label :user_id %>
+            <%= form.select :user_id, options_from_collection_for_select(User.all, 'id', 'name', @user ? @user.id : 1), {},  class: 'name-select' %>
+          </div>
+
+          <div class="field">
+            <%= form.label :note %>
+            <%= form.text_area :note %>
+          </div>
+
+          <div class="field">
+            <%= form.label :date_created %>
+            <%= form.date_select :date_created %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary gym-button-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clear-fix">
+    <% Day.where(user_id: @user.id).each do |day| %>
+      <%= link_to day do %>
+        <div class="day-container">
+          <div class="header"></div>
+          <div class="day-content">
+            <h2><%= 'Day ' + day.day_no.to_s %></h2>
+            <h5><%= day.date_created.strftime("%A") %></h5>
+            <h6><%= day.date_created.strftime("%B %e, %Y") %></h6>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <hr>
 
 </div>
 

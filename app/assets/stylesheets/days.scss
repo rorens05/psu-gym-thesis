@@ -1,0 +1,49 @@
+// Place all the styles related to the Days controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color : #aa5061;
+$logo-width: 30px;
+$avatar-width: 20px;
+$second-nav-item-width : 130px;
+
+.day-container{
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid rgb(192, 192, 192);
+  position: relative;
+  text-align: center;
+  float: left;
+  margin: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+  .header{
+    background-color: $primary-color;
+    height: 50px;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  h2{
+    background-color: #ffffff00
+  }
+
+  .day-content{
+    background-color: #ffffff00;
+    margin-top: -45px;
+    h2{
+      color: white !important;
+    }
+    h5, h6{
+      color: $primary-color;
+    }
+  }
+}
+
+
+@media screen and (max-width: 990px) {
+  .day-container{
+    width: 100%;
+    max-width: 100%;
+  }
+}

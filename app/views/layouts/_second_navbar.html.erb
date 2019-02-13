@@ -5,10 +5,10 @@
 
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
         <ul class="navbar-nav">
-          <li class="nav-item <%= check_if_active('dashboard') %>">
+          <li class="nav-item <%= check_if_active(['dashboard']) %>">
             <a class="nav-link" href="/dashboard"><span class="fas fa-chart-line icon"></span>Dashboard</a>
           </li>
-          <li class="nav-item <%= check_if_active('users') %>">
+          <li class="nav-item <%= check_if_active(['users', 'days']) %>">
             <a class="nav-link" href="/users"><span class="fas fa-users icon"></span>Users</a>
           </li>
           <li class="nav-item">
@@ -20,7 +20,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="fas fa-chart-pie icon"></span>Health</a>
           </li>
-          <li class="nav-item <%= check_if_active('admins') %>">
+          <li class="nav-item <%= check_if_active(['admins']) %>">
             <a class="nav-link" href="/admins"><span class="fas fa-users-cog icon"></span>Admins</a>
           </li>
         </ul>

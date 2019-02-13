@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def check_if_active(url)
-    if url == controller_name
-      return "active"
+  def check_if_active(urls)
+    urls.each do |url|
+      if url == controller_name
+        return "active"
+      end
     end
   end
 
@@ -12,4 +14,8 @@ module ApplicationHelper
       return "/images/image_not_found.png"
     end 
   end  
+
+  def limit_string(string, lenght)
+    string[0..lenght].gsub(/\s\w+$/,'...')
+  end
 end

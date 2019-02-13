@@ -1,0 +1,31 @@
+<%= form_with(model: day, local: true) do |form| %>
+  <% if day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
+      <ul>
+      <% day.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select :user_id, options_from_collection_for_select(User.all, 'id', 'name', @user ? @user.id : 1), {},  class: 'name-select' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_created %>
+    <%= form.date_select :date_created %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

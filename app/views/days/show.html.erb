@@ -1,0 +1,25 @@
+
+<div class="container main margined-top bg-white">
+  <p>
+    <strong>User:</strong>
+    <%= @day.user_id %>
+  </p>
+
+  <p>
+    <strong>Note:</strong>
+    <%= @day.note %>
+  </p>
+
+  <p>
+    <strong>Date created:</strong>
+    <%= @day.date_created %>
+  </p>
+
+  <p>
+    <strong>Day no:</strong>
+    <%= @day.day_no %>
+  </p>
+
+  <%= link_to 'Edit', edit_day_path(@day) %> |
+  <%= link_to 'Back', days_path %>
+</div>
