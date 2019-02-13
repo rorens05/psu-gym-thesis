@@ -43,7 +43,8 @@ $second-nav-item-width : 130px;
 
 @media screen and (max-width: 990px) {
   .day-container{
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
+    float: none;
   }
 }
