@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :show_console
   def show_console
-    # if Rails.env.development?
-    #   console
-    # end
+    if Rails.env.development?
+      console
+    end
   end
 
   def admin_only
