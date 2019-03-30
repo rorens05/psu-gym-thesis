@@ -11,7 +11,6 @@
     </div>
   <% end %>
 
-
   <%= image_tag validate_image(form.object.image), id: "image", class: "product-image"%>
 
   <div class="field">
@@ -46,17 +45,7 @@
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.number_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.select  :gender, options_for_select(['Male', 'Female'], form.object.gender) %>
   </div>
 
   <div class="actions">

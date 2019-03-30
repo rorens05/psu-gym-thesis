@@ -1,0 +1,26 @@
+<div class="container main margined-top bg-white">
+
+  <p id="notice"><%= notice %></p>
+    <%= image_tag validate_image(@exercise.image), style: "width: 100%" %>
+  <br>
+  <h1>
+    <%= @exercise.name %>
+  </h1>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @exercise.description %>
+  </p>
+
+  <p>
+    <strong>Usage:</strong>
+    <%= @exercise.usage %>
+  </p>
+
+  <p>
+    <strong>Routine:</strong>
+    <%= link_to @exercise.routine.name, @exercise.routine %>
+  </p>
+
+  <%= link_to 'Edit', edit_exercise_path(@exercise) %>
+</div>

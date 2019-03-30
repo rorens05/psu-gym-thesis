@@ -11,7 +11,8 @@ class DaysController < ApplicationController
   # GET /days/1
   # GET /days/1.json
   def show
-    @health_status = @day.health_statuses.first
+    @time_in_health = @day.health_statuses.first
+    @time_out_health = @day.health_statuses.last
   end
 
   # GET /days/new
@@ -30,6 +31,7 @@ class DaysController < ApplicationController
     @day.day_no = Day.where(user_id: @day.user_id).count + 1
     respond_to do |format|
       if @day.save
+        HealthStatus.create(day_id: @day.id)
         HealthStatus.create(day_id: @day.id)
         format.html { redirect_to @day.user, notice: 'Day was successfully created.' }
         format.json { render :show, status: :created, location: @day }
@@ -72,6 +74,6 @@ class DaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
-      params.require(:day).permit(:user_id, :note, :date_created, :day_no)
+      params.require(:day).permit(:image, :user_id, :note, :date_created, :day_no)
     end
 end

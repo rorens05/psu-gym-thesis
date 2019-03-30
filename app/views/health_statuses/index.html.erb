@@ -1,6 +1,6 @@
 
 <div class="container main margined-top bg-white">
-  <h1>Health Statuses</h1>
+  <h1>Latest Health Status</h1>
 
   <table>
     <thead>
@@ -12,13 +12,12 @@
         <th>Blood pressure</th>
         <th>Sugar</th>
         <th>Waist line</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @users.each do |user| %>
-        <% if user.days %>
+        <% if user.days.last %>
           <tr>
             <td> <%= image_tag validate_image(user.image) %> <%= link_to user.name, user %></td>
             <td><%= link_to "Day " + user.days.last.health_statuses.first.day.day_no.to_s, user.days.last.health_statuses.first.day %></td>
@@ -27,15 +26,10 @@
             <td><%= user.days.last.health_statuses.first.blood_pressure %></td>
             <td><%= user.days.last.health_statuses.first.sugar %></td>
             <td><%= user.days.last.health_statuses.first.waist_line %></td>
-            <td><%= link_to 'Show', user.days.last.health_statuses.first %></td>
-            <td><%= link_to 'Edit', edit_health_status_path(user.days.last.health_statuses.first) %></td>
-            <td><%= link_to 'Destroy', user.days.last.health_statuses.first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>          
       <% end %>
     </tbody>
   </table>
   <br>
-
-  <%= link_to 'New Health Status', new_health_status_path %>
 </div>

@@ -18,30 +18,125 @@
 
 
 <div class="container bg-white new main">
-  <h1>Health Status</h1> <hr>
+  <h1 class="center-text">Health Status</h1> <hr>
   
-  <table class="">
-    <tr>
-      <td width="200px">Height:</td>
-      <td><%= @health_status.height %></td>
-    </tr>
-    <tr>
-      <td>Weight:</td>
-      <td><%= @health_status.weight %></td>
-    </tr>
-    <tr>
-      <td>Blood pressure:</td>
-      <td><%= @health_status.blood_pressure %></td>
-    </tr>
-    <tr>
-      <td>Sugar:</td>
-      <td><%= @health_status.sugar %></td>
-    </tr>
-    <tr>
-      <td>Waist line:</td>
-      <td><%= @health_status.waist_line %></td>
-    </tr>
-  </table><br>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="center-text" >Time in</h2>
+      <%= image_tag validate_image(@time_in_health.image), class: "health-image" %>
+      <table class="">
+        <tr>
+          <td width="200px">Height:</td>
+          <td><%= @time_in_health.height %></td>
+        </tr>
+        <tr>
+          <td>Weight:</td>
+          <td><%= @time_in_health.weight %></td>
+        </tr>
+        <tr>
+          <td>Blood pressure:</td>
+          <td><%= @time_in_health.blood_pressure %></td>
+        </tr>
+        <tr>
+          <td>Sugar:</td>
+          <td><%= @time_in_health.sugar %></td>
+        </tr>
+        <tr>
+          <td>Waist line:</td>
+          <td><%= @time_in_health.waist_line %></td>
+        </tr>
+      </table><br>
+      <%= render partial: 'edit_day_health', locals: {health_status: @time_in_health} %>
+    </div>
+    <div class="col-sm-6">
+      <h2 class="center-text" >Time out</h2>
+      <%= image_tag validate_image(@time_out_health.image), class: "health-image" %>
+      <table class="">
+        <tr>
+          <td width="200px">Height:</td>
+          <td><%= @time_out_health.height %></td>
+        </tr>
+        <tr>
+          <td>Weight:</td>
+          <td><%= @time_out_health.weight %></td>
+        </tr>
+        <tr>
+          <td>Blood pressure:</td>
+          <td><%= @time_out_health.blood_pressure %></td>
+        </tr>
+        <tr>
+          <td>Sugar:</td>
+          <td><%= @time_out_health.sugar %></td>
+        </tr>
+        <tr>
+          <td>Waist line:</td>
+          <td><%= @time_out_health.waist_line %></td>
+        </tr>
+      </table><br>
+      <%= render partial: 'edit_day_health', locals: {health_status: @time_out_health} %>
+    </div>
+  </div> <br><hr>
 
-  <%= render 'days/edit_day_health' %> <br> <p></p>
+  <div class="container main margined-top bg-white">
+  
+    <h2>Routines finished</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @day.user_routines.each do |user_routine| %>
+            <tr>
+              <td><%= image_tag validate_image(user_routine.routine.image), class: "routines" %> <%= link_to user_routine.routine.name, user_routine.routine %></td>
+              <td><%= user_routine.routine.description %></td>
+              <td><%= link_to 'Remove', user_routine, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table><br>
+
+      <button type="button" class="btn btn-primary gym-button-primary" data-toggle="modal" data-target="#exampleModal">
+        Add new routine
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <%= form_with(model: UserRoutine.new, local: true) do |form| %>
+                <%= form.hidden_field :day_id, value: @day.id %>
+
+                <div class="field">
+                  <%= form.label :routine_id %>
+                  <%= form.select :routine_id, options_from_collection_for_select(Routine.all, :id, :name, form.object.routine_id) %>
+                </div>
+
+                <div class="actions">
+                  <%= form.submit 'Add' %>
+                </div>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  </div>
 </div>
+

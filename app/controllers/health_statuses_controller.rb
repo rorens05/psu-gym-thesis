@@ -71,6 +71,6 @@ class HealthStatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_status_params
-      params.require(:health_status).permit(:day_id, :height, :weight, :blood_pressure, :sugar, :waist_line)
+      params.require(:health_status).permit(:image, :day_id, :height, :weight, :blood_pressure, :sugar, :waist_line)
     end
 end

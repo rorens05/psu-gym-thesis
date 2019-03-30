@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Routines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Routine</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_routines.each do |user_routine| %>
+      <tr>
+        <td><%= user_routine.day %></td>
+        <td><%= user_routine.routine %></td>
+        <td><%= link_to 'Show', user_routine %></td>
+        <td><%= link_to 'Edit', edit_user_routine_path(user_routine) %></td>
+        <td><%= link_to 'Destroy', user_routine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Routine', new_user_routine_path %>

@@ -1,27 +1,27 @@
 
 <!-- Modal -->
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary gym-button-primary gym-btn-dw" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary gym-button-primary gym-btn-dw btn-sm" data-toggle="modal" data-target="#modal<%= health_status.id %>">
   Edit
 </button>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal<%= health_status.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Health Status</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         
-        <%= form_with(model: @health_status, local: true) do |form| %>
-        <% if @health_status.errors.any? %>
+        <%= form_with(model: health_status, local: true) do |form| %>
+        <% if health_status.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@health_status.errors.count, "error") %> prohibited this health_status from being saved:</h2>
+            <h2><%= pluralize(health_status.errors.count, "error") %> prohibited this health_status from being saved:</h2>
 
             <ul>
-            <% @health_status.errors.full_messages.each do |message| %>
+            <% health_status.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
             </ul>
@@ -30,6 +30,13 @@
 
         <%= form.hidden_field :day_id %>
 
+        <%= image_tag validate_image(form.object.image), id: "image", class: "product-image"%>
+
+        <div class="field">
+          <%= form.label :image%>
+          <%= form.file_field :image, class: "input-image" %>
+        </div>
+        
         <div class="field">
           <%= form.label :height %>
           <%= form.text_field :height %>
@@ -59,13 +66,7 @@
           <%= form.submit %>
         </div>
       <% end %>
-
-
-
-
-
-
-
+      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

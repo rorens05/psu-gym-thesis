@@ -1,0 +1,45 @@
+<%= form_with(model: exercise, local: true) do |form| %>
+  <% if exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+
+      <ul>
+      <% exercise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= image_tag validate_image(form.object.image), id: "image", class: "product-image"%>
+
+  <div class="field">
+    <%= form.label :image%>
+    <%= form.file_field :image, class: "input-image" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usage %>
+    <%= form.text_area :usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :routine_id %>
+    <%= form.select :routine_id, options_from_collection_for_select(Routine.all, :id, :name, form.object.id) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

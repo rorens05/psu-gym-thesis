@@ -1,0 +1,27 @@
+<%= form_with(model: user_routine, local: true) do |form| %>
+  <% if user_routine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_routine.errors.count, "error") %> prohibited this user_routine from being saved:</h2>
+
+      <ul>
+      <% user_routine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :day_id %>
+    <%= form.text_field :day_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :routine_id %>
+    <%= form.text_field :routine_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

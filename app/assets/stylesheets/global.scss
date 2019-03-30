@@ -76,7 +76,7 @@ body{
       margin-top: 10px;
       margin-bottom: 0px;
     }
-    .op-fr-coll, input[type=text], input[type=number], input[type=password], textarea, .name-select{
+    select#user_routine_routine_id, .op-fr-coll, input[type=text], input[type=number], input[type=password], textarea, .name-select, select#user_gender, select#exercise_routine_id{
       width: 100%;
       padding: 5px;
       font-size: large;
@@ -129,6 +129,18 @@ body{
           width: 80px;
           height: 80px;
           margin-right: 10px;
+        }
+        img.routines{
+          width: auto;
+          height: 80px;
+          margin-right: 10px;
+        }
+        a{
+          color: black !important;
+          font-weight: bold;
+        }
+        .btn{
+          color: white !important; 
         }
 
       }
@@ -259,4 +271,15 @@ body{
  
     }
   }
+}
+
+.center-text{
+  text-align: center !important;
+}
+
+.health-image{
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 5px auto;
 }

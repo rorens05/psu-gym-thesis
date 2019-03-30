@@ -11,12 +11,12 @@
           <li class="nav-item <%= check_if_active(['users', 'days']) %>">
             <a class="nav-link" href="/users"><span class="fas fa-users icon"></span>Users</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fas fa-tasks icon"></span>Routines</a>
+          <li class="nav-item <%= check_if_active(['routines']) %>">
+            <a class="nav-link" href="/routines"><span class="fas fa-tasks icon"></span>Routines</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fas fa-dumbbell icon"></span>Exercises</a>
-          </li>
+          <!-- <li class="nav-item <%= check_if_active(['days']) %>">
+            <a class="nav-link" href="/exercises"><span class="fas fa-dumbbell icon"></span>Exercises</a>
+          </li> -->
           <li class="nav-item  <%= check_if_active(['health_statuses']) %>">
             <a class="nav-link" href="/health_statuses"><span class="fas fa-chart-pie icon"></span>Health</a>
           </li>

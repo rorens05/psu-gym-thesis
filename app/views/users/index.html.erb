@@ -24,7 +24,7 @@
           <td><%= user.birthday %></td>
           <td><%= user.contact_no %></td>
           <td><%= user.gender %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
@@ -32,6 +32,5 @@
 
   <br>
 
-  <%= link_to 'New User', new_user_path %>
-
+  <%= link_to 'New User', new_user_path, class: "btn btn-primary gym-button-primary" %> <br><br>
 </div>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @user_routine.day %>
+</p>
+
+<p>
+  <strong>Routine:</strong>
+  <%= @user_routine.routine %>
+</p>
+
+<%= link_to 'Edit', edit_user_routine_path(@user_routine) %> |
+<%= link_to 'Back', user_routines_path %>
